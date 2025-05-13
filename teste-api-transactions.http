@@ -5,14 +5,18 @@ Content-Type: application/json
 
 {
 "amount": 123.45,
-"timestamp": "2024-02-20T12:34:56.789Z"
+"timestamp": "2025-05-13T20:34:56.789Z"
 }
 
 ###POST
 POST http://localhost:3000/transactions 
 Content-Type: application/json
+
 {
   "amount": 100,
   "timestamp": "2024-02-20T12:00:00Z"
 }
+
+###DELETE Transaction
+DELETE http://localhost:3000/transactions
 
