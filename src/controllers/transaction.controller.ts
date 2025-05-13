@@ -3,6 +3,7 @@ import {
   Body,
   Controller,
   Delete,
+  Get,
   HttpCode,
   HttpStatus,
   Inject,
@@ -10,6 +11,8 @@ import {
 } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
+import { StatisticsDto } from 'src/dtos/statistics.dto';
+import { GetStatisticsUseCase } from 'src/use-cases/get-statistics.use-case';
 import { Transaction } from '../entities/transaction.entity';
 import { CreateTransactionUseCase } from '../use-cases/create-transaction.use-case';
 import { DeleteAllTransactionsUseCase } from '../use-cases/delete-all-transactions.use-case';
@@ -23,6 +26,9 @@ export class TransactionController {
 
     @Inject(DeleteAllTransactionsUseCase)
     private readonly deleteAllTransactionsUseCase: DeleteAllTransactionsUseCase,
+
+    @Inject(GetStatisticsUseCase)
+    private readonly getStatisticsUseCase: GetStatisticsUseCase,
   ) {}
 
   @Post()
@@ -43,5 +49,11 @@ export class TransactionController {
   @Delete()
   async deleteAll(): Promise<void> {
     await this.deleteAllTransactionsUseCase.execute();
+  }
+
+  @Get('statistics')
+  @HttpCode(HttpStatus.OK)
+  async getStatistics(): Promise<StatisticsDto> {
+    return this.getStatisticsUseCase.generateStatistics();
   }
 }

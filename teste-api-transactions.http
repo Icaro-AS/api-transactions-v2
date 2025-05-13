@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
 "amount": 123.45,
-"timestamp": "2025-05-13T20:34:56.789Z"
+"timestamp": "2025-05-13T20:26:00.789Z"
 }
 
 ###POST
@@ -20,3 +20,6 @@ Content-Type: application/json
 ###DELETE Transaction
 DELETE http://localhost:3000/transactions
 
+
+###GET transactions/statistics
+GET http://localhost:3000/transactions/statistics
