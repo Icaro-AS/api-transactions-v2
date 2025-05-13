@@ -4,10 +4,11 @@ import { InMemoryTransactionRepository } from './repositories/transaction.reposi
 import { CreateTransactionUseCase } from './use-cases/create-transaction.use-case';
 import { DeleteAllTransactionsUseCase } from './use-cases/delete-all-transactions.use-case';
 import { GetStatisticsUseCase } from './use-cases/get-statistics.use-case';
+import { HealthController } from './health/health.controller';
 
 @Module({
   imports: [],
-  controllers: [TransactionController],
+  controllers: [TransactionController, HealthController],
   providers: [
     CreateTransactionUseCase,
     DeleteAllTransactionsUseCase,
