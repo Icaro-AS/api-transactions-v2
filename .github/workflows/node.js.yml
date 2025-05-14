@@ -23,7 +23,7 @@ jobs:
           cache-dependency-path: yarn.lock
 
       - name: Instalar dependências
-        run: yarn install --frozen-lockfile
+        run: yarn install 
 
       - name: Rodar Lint
         run: yarn lint
