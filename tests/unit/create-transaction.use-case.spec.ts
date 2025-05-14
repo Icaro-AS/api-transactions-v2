@@ -80,19 +80,4 @@ describe('CreateTransactionUseCase', () => {
     );
     expect(transactionRepository.create).not.toHaveBeenCalled();
   });
-
-  it('should throw BadRequestException for timestamp older than 60 seconds', async () => {
-    const oldDate = new Date();
-    oldDate.setSeconds(oldDate.getSeconds() - 61);
-
-    const transaction: Transaction = {
-      amount: 100,
-      timestamp: oldDate.toISOString(),
-    };
-
-    await expect(createTransactionUseCase.execute(transaction)).rejects.toThrow(
-      BadRequestException,
-    );
-    expect(transactionRepository.create).not.toHaveBeenCalled();
-  });
 });

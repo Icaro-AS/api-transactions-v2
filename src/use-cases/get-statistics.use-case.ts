@@ -23,10 +23,6 @@ export class GetStatisticsUseCase {
       (transaction) => new Date(transaction.timestamp) >= sixtySecondsAgo,
     );
 
-    console.log('transactions:', transactions);
-    console.log('Now:', now);
-    console.log('sixtySecondsAgo:', sixtySecondsAgo);
-
     if (recentTransactions.length === 0) {
       return {
         count: 0,
