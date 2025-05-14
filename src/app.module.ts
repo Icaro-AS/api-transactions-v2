@@ -5,6 +5,7 @@ import { CreateTransactionUseCase } from './use-cases/create-transaction.use-cas
 import { DeleteAllTransactionsUseCase } from './use-cases/delete-all-transactions.use-case';
 import { GetStatisticsUseCase } from './use-cases/get-statistics.use-case';
 import { HealthController } from './health/health.controller';
+import { Transaction } from './entities/transaction.entity';
 
 @Module({
   imports: [],
@@ -13,6 +14,7 @@ import { HealthController } from './health/health.controller';
     CreateTransactionUseCase,
     DeleteAllTransactionsUseCase,
     GetStatisticsUseCase,
+    Transaction,
     {
       provide: 'TransactionRepository',
       useClass: InMemoryTransactionRepository,

@@ -54,6 +54,6 @@ export class TransactionController {
   @Get('statistics')
   @HttpCode(HttpStatus.OK)
   async getStatistics(): Promise<StatisticsDto> {
-    return this.getStatisticsUseCase.generateStatistics();
+    return this.getStatisticsUseCase.getStatistics();
   }
 }

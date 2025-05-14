@@ -9,7 +9,7 @@ export class GetStatisticsUseCase {
     private readonly transactionRepository: TransactionRepository,
   ) {}
 
-  async generateStatistics(): Promise<StatisticsDto> {
+  async getStatistics(): Promise<StatisticsDto> {
     const now = new Date();
     const utcOffset = 3 * 60 * 60 * 1000;
     const timeStatistics = 60000;
