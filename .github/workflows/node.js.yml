@@ -7,14 +7,36 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    name: Build and Test on Node.js ${{ matrix.node-version }}
+  lint:
+    name: Lint (Node.js 22.x)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
+
+      - name: Instalar dependências
+        run: yarn install --frozen-lockfile
+
+      - name: Rodar Lint
+        run: yarn lint
+        continue-on-error: true  # Altere para false para quebrar o build em erro
+
+  test:
+    name: Testes e Build em múltiplas versões do Node.js
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [22.x]
-        # Veja o cronograma de versões do Node.js em https://nodejs.org/en/about/releases/
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
       - name: Checkout do código
@@ -24,17 +46,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
 
       - name: Instalar dependências
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build do projeto (se existir)
-        run: npm run build --if-present
-
-      - name: Lint (opcional)
-        run: npm run lint
-        continue-on-error: true  # Altere para false se quiser falhar o build em caso de erro
+        run: yarn build --if-present
 
       - name: Executar testes com cobertura
-        run: npm test -- --coverage
+        run: yarn test --coverage
