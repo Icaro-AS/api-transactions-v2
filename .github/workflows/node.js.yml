@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Test on Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # Veja o cronograma de versões do Node.js em https://nodejs.org/en/about/releases/
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build do projeto (se existir)
+        run: npm run build --if-present
+
+      - name: Lint (opcional)
+        run: npm run lint
+        continue-on-error: true  # Altere para false se quiser falhar o build em caso de erro
+
+      - name: Executar testes com cobertura
+        run: npm test -- --coverage
