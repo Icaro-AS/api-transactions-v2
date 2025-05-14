@@ -17,7 +17,14 @@ import { Transaction } from '../entities/transaction.entity';
 import { CreateTransactionUseCase } from '../use-cases/create-transaction.use-case';
 import { DeleteAllTransactionsUseCase } from '../use-cases/delete-all-transactions.use-case';
 import { CreateTransactionDto } from './../dtos/create-transaction.dto';
+import {
+  ApiCreatedResponse,
+  ApiBadRequestResponse,
+  ApiOkResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
+@ApiTags('transactions')
 @Controller('transactions')
 export class TransactionController {
   constructor(
@@ -33,6 +40,8 @@ export class TransactionController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
+  @ApiCreatedResponse({ description: 'Transação criada com sucesso.' })
+  @ApiBadRequestResponse({ description: 'Requisição inválida.' })
   async create(
     @Body() createTransactionDto: CreateTransactionDto,
   ): Promise<void> {
@@ -47,12 +56,18 @@ export class TransactionController {
   }
 
   @Delete()
+  @HttpCode(HttpStatus.OK)
+  @ApiOkResponse({ description: 'Todas as transações foram deletadas.' })
   async deleteAll(): Promise<void> {
     await this.deleteAllTransactionsUseCase.execute();
   }
 
   @Get('statistics')
   @HttpCode(HttpStatus.OK)
+  @ApiOkResponse({
+    description: 'Estatísticas retornadas com sucesso.',
+    type: StatisticsDto,
+  })
   async getStatistics(): Promise<StatisticsDto> {
     return this.getStatisticsUseCase.getStatistics();
   }
