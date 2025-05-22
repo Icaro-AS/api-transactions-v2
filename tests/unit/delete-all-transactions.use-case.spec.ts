@@ -1,4 +1,4 @@
-import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/delete-all-transactions.use-case';
+import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/DeleteAllTransactions.usecase';
 import { TransactionRepository } from 'src/interfaces/transaction.repository.interface';
 
 describe('DeleteAllTransactionsUseCase', () => {

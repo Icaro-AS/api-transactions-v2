@@ -9,7 +9,7 @@ import {
 } from '@nestjs/websockets';
 import { Logger } from '@nestjs/common';
 import { Server, Socket } from 'socket.io';
-import { GetStatisticsUseCase } from '../../application/use-cases/get-statistics.use-case';
+import { GetStatisticsUseCase } from '../../application/use-cases/GetStatistics.usecase';
 import { StatisticsDto } from '../../dtos/statistics.dto';
 
 @WebSocketGateway({ cors: true })

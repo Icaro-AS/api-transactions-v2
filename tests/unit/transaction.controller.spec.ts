@@ -6,9 +6,9 @@ import { CreateTransactionDto } from 'src/dtos/create-transaction.dto';
 import { StatisticsDto } from 'src/dtos/statistics.dto';
 import { Transaction } from 'src/domain/entities/transaction.entity';
 import { CreateTransactionUseCase } from 'src/application/use-cases/CreateTransaction.usecase';
-import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/delete-all-transactions.use-case';
-import { GetStatisticsUseCase } from 'src/application/use-cases/get-statistics.use-case';
-import { TransactionController } from 'src/presentation/controllers/TransactionsController';
+import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/DeleteAllTransactions.usecase';
+import { GetStatisticsUseCase } from 'src/application/use-cases/GetStatistics.usecase';
+import { TransactionController } from 'src/presentation/controllers/Transactions.controller';
 
 describe('TransactionController', () => {
   let controller: TransactionController;

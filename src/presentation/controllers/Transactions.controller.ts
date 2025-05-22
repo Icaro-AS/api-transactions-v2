@@ -8,8 +8,8 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { CreateTransactionUseCase } from 'src/application/use-cases/CreateTransaction.usecase';
-import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/delete-all-transactions.use-case';
-import { GetStatisticsUseCase } from 'src/application/use-cases/get-statistics.use-case';
+import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/DeleteAllTransactions.usecase';
+import { GetStatisticsUseCase } from 'src/application/use-cases/GetStatistics.usecase';
 import { CreateTransactionRequestDTO } from '../dtos/CreateTransactionRequest.dto';
 
 @Controller('transactions')

@@ -9,7 +9,7 @@ export class CreateTransactionUseCase {
     try {
       const transaction = new Transaction(
         input.amount,
-        new Date(input.timestamp),
+        input.timestamp.slice(0, -1),
       );
       this.repo.create(transaction);
     } catch (error) {
