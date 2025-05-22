@@ -3,16 +3,15 @@ import { BadRequestException } from '@nestjs/common';
 export class Transaction {
   constructor(
     public readonly amount: number,
-    public readonly timestamp: string,
+    public readonly timestamp: Date,
   ) {
-    const timestampTimeZone = new Date(this.timestamp.slice(0, -1));
     if (amount < 0) {
       throw new BadRequestException('Invalid amount');
     }
-    if (timestampTimeZone > new Date()) {
+    if (timestamp > new Date()) {
       throw new BadRequestException('Timestamp cannot be in the future');
     }
-    if (isNaN(timestampTimeZone.getTime())) {
+    if (isNaN(timestamp.getTime())) {
       throw new BadRequestException('Invalid timestamp format');
     }
   }

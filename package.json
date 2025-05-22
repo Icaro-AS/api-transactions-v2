@@ -75,12 +75,11 @@
       "json",
       "ts"
     ],
-    "roots": [
-      "<rootDir>/src",
-      "<rootDir>/tests/unit",
-      "<rootDir>/tests/integration"
+    "rootDir": ".",
+    "testMatch": [
+      "<rootDir>/tests/**/*.spec.ts",
+      "<rootDir>/tests/**/*.test.ts"
     ],
-    "testRegex": ".*\\.(spec|test)\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
@@ -91,6 +90,7 @@
     "testEnvironment": "node",
     "moduleNameMapper": {
       "^src/(.*)$": "<rootDir>/src/$1"
-    }
+    },
+    "verbose": true
   }
 }

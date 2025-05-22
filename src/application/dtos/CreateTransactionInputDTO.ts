@@ -1,4 +1,4 @@
 export class CreateTransactionInputDTO {
   amount!: number;
-  timestamp!: string;
+  timestamp!: Date;
 }

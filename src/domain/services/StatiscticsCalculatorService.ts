@@ -1,11 +1,15 @@
 import { Transaction } from '../entities/Transaction.entity';
 import { IStatistics } from './IStatistics';
+import { CalculateTimeZone } from './CalculateTimeZone.Service';
 
 export class StatisticCalculator {
   calculate(transactions: Transaction[]): IStatistics {
     const recentTransactions = transactions.filter(
       (transaction) =>
-        Date.now() - new Date(transaction.timestamp.slice(0, -1)).getTime() <=
+        Date.now() -
+          CalculateTimeZone.calculateTimeZone(
+            transaction.timestamp,
+          ).getTime() <=
         60000,
     );
     const count = recentTransactions.length;

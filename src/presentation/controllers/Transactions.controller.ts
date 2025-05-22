@@ -11,6 +11,7 @@ import { CreateTransactionUseCase } from 'src/application/use-cases/CreateTransa
 import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/DeleteAllTransactions.usecase';
 import { GetStatisticsUseCase } from 'src/application/use-cases/GetStatistics.usecase';
 import { CreateTransactionRequestDTO } from '../dtos/CreateTransactionRequest.dto';
+import { CreateTransactionInputDTO } from 'src/application/dtos/CreateTransactionInputDTO';
 
 @Controller('transactions')
 export class TransactionsController {
@@ -22,7 +23,11 @@ export class TransactionsController {
 
   @Post()
   create(@Body() dto: CreateTransactionRequestDTO) {
-    this.createTransaction.execute(dto);
+    const input: CreateTransactionInputDTO = {
+      amount: dto.amount,
+      timestamp: new Date(dto.timestamp)
+    };
+    this.createTransaction.execute(input);
     return { statusCode: 201, message: 'Created' };
   }
 
