@@ -1,6 +1,6 @@
 import { CreateTransactionUseCase } from 'src/use-cases/create-transaction.use-case';
 import { TransactionRepository } from 'src/interfaces/transaction.repository.interface';
-import { Transaction } from 'src/entities/transaction.entity';
+import { Transaction } from 'src/domain/entities/transaction.entity';
 import { BadRequestException } from '@nestjs/common';
 
 describe('CreateTransactionUseCase', () => {

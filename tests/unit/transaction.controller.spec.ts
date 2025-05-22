@@ -4,7 +4,7 @@ import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { CreateTransactionDto } from 'src/dtos/create-transaction.dto';
 import { StatisticsDto } from 'src/dtos/statistics.dto';
-import { Transaction } from 'src/entities/transaction.entity';
+import { Transaction } from 'src/domain/entities/transaction.entity';
 import { CreateTransactionUseCase } from 'src/use-cases/create-transaction.use-case';
 import { DeleteAllTransactionsUseCase } from 'src/use-cases/delete-all-transactions.use-case';
 import { GetStatisticsUseCase } from 'src/use-cases/get-statistics.use-case';

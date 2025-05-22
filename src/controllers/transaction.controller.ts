@@ -13,7 +13,7 @@ import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { StatisticsDto } from 'src/dtos/statistics.dto';
 import { GetStatisticsUseCase } from 'src/use-cases/get-statistics.use-case';
-import { Transaction } from '../entities/transaction.entity';
+import { Transaction } from '../domain/entities/transaction.entity';
 import { CreateTransactionUseCase } from '../use-cases/create-transaction.use-case';
 import { DeleteAllTransactionsUseCase } from '../use-cases/delete-all-transactions.use-case';
 import { CreateTransactionDto } from './../dtos/create-transaction.dto';

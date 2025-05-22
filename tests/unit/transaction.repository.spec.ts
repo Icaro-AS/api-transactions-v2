@@ -1,5 +1,5 @@
 import { InMemoryTransactionRepository } from 'src/repositories/transaction.repository';
-import { Transaction } from 'src/entities/transaction.entity';
+import { Transaction } from 'src/domain/entities/transaction.entity';
 
 describe('InMemoryTransactionRepository', () => {
   let transactionRepository: InMemoryTransactionRepository;
