@@ -1,4 +1,4 @@
-import { GetStatisticsUseCase } from 'src/use-cases/get-statistics.use-case';
+import { GetStatisticsUseCase } from 'src/application/use-cases/get-statistics.use-case';
 import { TransactionRepository } from 'src/interfaces/transaction.repository.interface';
 
 describe('GetStatisticsUseCase', () => {

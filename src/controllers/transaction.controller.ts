@@ -12,10 +12,10 @@ import {
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { StatisticsDto } from 'src/dtos/statistics.dto';
-import { GetStatisticsUseCase } from 'src/use-cases/get-statistics.use-case';
+import { GetStatisticsUseCase } from 'src/application/use-cases/get-statistics.use-case';
 import { Transaction } from '../domain/entities/transaction.entity';
-import { CreateTransactionUseCase } from '../use-cases/create-transaction.use-case';
-import { DeleteAllTransactionsUseCase } from '../use-cases/delete-all-transactions.use-case';
+import { CreateTransactionUseCase } from '../application/use-cases/CreateTransaction.usecase';
+import { DeleteAllTransactionsUseCase } from '../application/use-cases/delete-all-transactions.use-case';
 import { CreateTransactionDto } from './../dtos/create-transaction.dto';
 import {
   ApiCreatedResponse,

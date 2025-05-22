@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TransactionController } from './controllers/transaction.controller';
 import { InMemoryTransactionRepository } from './repositories/transaction.repository';
-import { CreateTransactionUseCase } from './use-cases/create-transaction.use-case';
-import { DeleteAllTransactionsUseCase } from './use-cases/delete-all-transactions.use-case';
-import { GetStatisticsUseCase } from './use-cases/get-statistics.use-case';
+import { CreateTransactionUseCase } from './application/use-cases/CreateTransaction.usecase';
+import { DeleteAllTransactionsUseCase } from './application/use-cases/delete-all-transactions.use-case';
+import { GetStatisticsUseCase } from './application/use-cases/get-statistics.use-case';
 import { HealthController } from './health/health.controller';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { WinstonModule } from 'nest-winston';

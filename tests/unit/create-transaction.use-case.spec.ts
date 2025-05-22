@@ -1,4 +1,4 @@
-import { CreateTransactionUseCase } from 'src/use-cases/create-transaction.use-case';
+import { CreateTransactionUseCase } from 'src/application/use-cases/CreateTransaction.usecase';
 import { TransactionRepository } from 'src/interfaces/transaction.repository.interface';
 import { Transaction } from 'src/domain/entities/transaction.entity';
 import { BadRequestException } from '@nestjs/common';

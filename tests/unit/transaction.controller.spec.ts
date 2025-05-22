@@ -5,9 +5,9 @@ import { validate } from 'class-validator';
 import { CreateTransactionDto } from 'src/dtos/create-transaction.dto';
 import { StatisticsDto } from 'src/dtos/statistics.dto';
 import { Transaction } from 'src/domain/entities/transaction.entity';
-import { CreateTransactionUseCase } from 'src/use-cases/create-transaction.use-case';
-import { DeleteAllTransactionsUseCase } from 'src/use-cases/delete-all-transactions.use-case';
-import { GetStatisticsUseCase } from 'src/use-cases/get-statistics.use-case';
+import { CreateTransactionUseCase } from 'src/application/use-cases/CreateTransaction.usecase';
+import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/delete-all-transactions.use-case';
+import { GetStatisticsUseCase } from 'src/application/use-cases/get-statistics.use-case';
 import { TransactionController } from 'src/controllers/transaction.controller';
 
 describe('TransactionController', () => {
