@@ -1,4 +1,4 @@
-import { Transaction } from 'src/domain/entities/transaction.entity';
+import { Transaction } from 'src/domain/entities/Transaction.entity';
 import { CreateTransactionInputDTO } from '../dtos/CreateTransactionInputDTO';
 import { ITransactionRepository } from 'src/domain/repositories/ITransactionRepository';
 

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { TransactionController } from './controllers/transaction.controller';
-import { InMemoryTransactionRepository } from './repositories/transaction.repository';
+import { TransactionsController } from './presentation/controllers/TransactionsController';
+
 import { CreateTransactionUseCase } from './application/use-cases/CreateTransaction.usecase';
 import { DeleteAllTransactionsUseCase } from './application/use-cases/delete-all-transactions.use-case';
 import { GetStatisticsUseCase } from './application/use-cases/get-statistics.use-case';
@@ -8,10 +8,11 @@ import { HealthController } from './health/health.controller';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { WinstonModule } from 'nest-winston';
 import * as winston from 'winston';
-import { LoggerMiddleware } from './logger.middleware';
+import { LoggerMiddleware } from './presentation/middlewares/logger.middleware';
 import { MiddlewareConsumer } from '@nestjs/common';
-import { MetricsMiddleware } from './metrics.middleware';
-import { StatisticsGateway } from './statistics.gateway';
+import { MetricsMiddleware } from './presentation/middlewares/metrics.middleware';
+import { StatisticsGateway } from './presentation/gateways/statistics.gateway';
+import { InMemoryTransactionRepository } from './infrastructure/repositories/InMemoryTransactionRepository';
 
 @Module({
   imports: [
@@ -37,7 +38,7 @@ import { StatisticsGateway } from './statistics.gateway';
     }),
   ],
 
-  controllers: [TransactionController, HealthController],
+  controllers: [TransactionsController, HealthController],
   providers: [
     CreateTransactionUseCase,
     DeleteAllTransactionsUseCase,

@@ -9,8 +9,8 @@ import {
 } from '@nestjs/websockets';
 import { Logger } from '@nestjs/common';
 import { Server, Socket } from 'socket.io';
-import { GetStatisticsUseCase } from './application/use-cases/get-statistics.use-case';
-import { StatisticsDto } from './dtos/statistics.dto';
+import { GetStatisticsUseCase } from '../../application/use-cases/get-statistics.use-case';
+import { StatisticsDto } from '../../dtos/statistics.dto';
 
 @WebSocketGateway({ cors: true })
 export class StatisticsGateway
@@ -39,7 +39,7 @@ export class StatisticsGateway
   async updateStatistics() {
     setInterval(async () => {
       const statistics: StatisticsDto =
-        await this.getStatisticsUseCase.getStatistics();
+        await this.getStatisticsUseCase.execute();
       this.server.emit('statistics', statistics); // Enviar as estatísticas para todos os clientes conectados
     }, 5000); // Atualizar a cada 5 segundos
   }

@@ -8,7 +8,7 @@ import { Transaction } from 'src/domain/entities/transaction.entity';
 import { CreateTransactionUseCase } from 'src/application/use-cases/CreateTransaction.usecase';
 import { DeleteAllTransactionsUseCase } from 'src/application/use-cases/delete-all-transactions.use-case';
 import { GetStatisticsUseCase } from 'src/application/use-cases/get-statistics.use-case';
-import { TransactionController } from 'src/controllers/transaction.controller';
+import { TransactionController } from 'src/presentation/controllers/TransactionsController';
 
 describe('TransactionController', () => {
   let controller: TransactionController;

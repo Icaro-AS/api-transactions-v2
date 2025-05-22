@@ -1,4 +1,4 @@
-import { Transaction } from '../entities/transaction.entity';
+import { Transaction } from '../entities/Transaction.entity';
 import { IStatistics } from './IStatistics';
 
 export class StatisticCalculator {
